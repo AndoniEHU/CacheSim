@@ -57,6 +57,12 @@ td{
 .cache-table .set7{
     background-color: gold;
 }
+.miss-mod{
+    border: 2px solid red;
+}
+.hit-mod{
+    border: 2px solid greenyellow;
+}
 
 
 

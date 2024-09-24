@@ -5,6 +5,8 @@
         let filas = tb.getElementsByTagName("tr");
         let tableData = [];
         for (let fila of filas){
+            fila.classList.remove("hit-mod")
+            fila.classList.remove("miss-mod")
             let celdas = fila.getElementsByTagName("td");
 
             let data =  {
@@ -28,10 +30,12 @@
             )
             .then(Result => Result.json())
             .then(data => {
+                console.log(data);
                 tB = data.tableBody;
                 hit = data.hit;
                 tOp = data.opTime;
-                showData(data.tableBody,data.hit,data.opTime);
+                mInd = data.modifiedIndex;
+                showData(data.tableBody,data.hit,data.opTime,data.modifiedIndex);
                 stadistics(data.hit,data.opTime);
 
 
@@ -87,7 +91,7 @@
 
     }
 
-    async function showData(tb,hit,Top){
+    async function showData(tb,hit,Top,mInd){
         let cacheBody = document.querySelector(".cache-body")
         let rows = cacheBody.getElementsByTagName("tr");
         let i=0;
@@ -98,6 +102,14 @@
                 row.children[3].innerHTML = tb[i].etiqueta;
                 row.children[4].innerHTML = tb[i].tiempo;
                 row.children[5].innerHTML = tb[i].bloqueMP;
+            }
+            if(i === mInd){
+                if(hit){
+                    row.classList.add("hit-mod")
+                }else{
+                    row.classList.add("miss-mod")
+                }
+
             }
             i++;
         }

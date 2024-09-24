@@ -10,10 +10,19 @@ public class SimData {
 
     private int opTime;
 
+    private int modifiedIndex;
+
     public SimData(List<TableRow> tableBody, boolean hit, int opTime) {
         this.tableBody = tableBody;
         this.hit = hit;
         this.opTime = opTime;
+    }
+
+    public SimData(List<TableRow> tableBody, boolean hit, int opTime, int modifiedIndex) {
+        this.tableBody = tableBody;
+        this.hit = hit;
+        this.opTime = opTime;
+        this.modifiedIndex = modifiedIndex;
     }
 
     public List<TableRow> getTableBody() {
@@ -38,5 +47,13 @@ public class SimData {
 
     public void setHit(boolean hit) {
         this.hit = hit;
+    }
+
+    public int getModifiedIndex() {
+        return modifiedIndex;
+    }
+
+    public void setModifiedIndex(int modifiedIndex) {
+        this.modifiedIndex = modifiedIndex;
     }
 }

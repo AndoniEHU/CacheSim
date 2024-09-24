@@ -61,6 +61,7 @@ public class AsyncController {
         int maxTime = 0;
         int maxTimeIndex = 0;
         int firstInd;
+        int modifiedIndex = 0;
         if(cacheBlock.getSet() == 0){
             firstInd = 0;
         }else{
@@ -85,19 +86,23 @@ public class AsyncController {
         sumTimesFourSets(tableBody, hitIndex, emptyIndex, maxTimeIndex, maxTime, politica, cacheBlock, op);
         if(hitIndex == -1){
             if(emptyIndex != -1){
+                modifiedIndex = emptyIndex;
                 tiempoOp = 30;
             }else{
+                modifiedIndex = maxTimeIndex;
                 tiempoOp = 58;
             }
         }else{
             hit = true;
+            modifiedIndex = hitIndex;
             tiempoOp = 3;
         }
-        return new SimData(tableBody,hit,tiempoOp);
+        return new SimData(tableBody,hit,tiempoOp,modifiedIndex);
     }
 
     private void sumTimesFourSets(List<TableRow> tableBody, int hitIndex, int emptyIndex, int maxTimeIndex, int maxTime, String politica, CacheBlock cacheBlock, String op) {
         if(emptyIndex != -1){
+
             tableBody.get(emptyIndex).setValido(1);
             tableBody.get(emptyIndex).setTiempo(1);
             tableBody.get(emptyIndex).setBloqueMP(cacheBlock.getBlock());
@@ -160,6 +165,7 @@ public class AsyncController {
         int maxTime = 0;
         int maxTimeIndex = 0;
         int firstInd = 0;
+        int modifiedIndex = 0;
         if(cacheBlock.getSet() == 1) firstInd = 2;
         if(cacheBlock.getSet() == 2) firstInd = 4;
         if(cacheBlock.getSet() == 3) firstInd = 6;
@@ -182,15 +188,18 @@ public class AsyncController {
         sumTimesTworSets(tableBody, hitIndex, emptyIndex, maxTimeIndex, maxTime, politica, cacheBlock, op);
         if(hitIndex == -1){
             if(emptyIndex != -1){
+                modifiedIndex = emptyIndex;
                 tiempoOp = 30;
             }else{
+                modifiedIndex = maxTimeIndex;
                 tiempoOp = 58;
             }
         }else{
             hit = true;
+            modifiedIndex = hitIndex;
             tiempoOp = 3;
         }
-        return new SimData(tableBody,hit,tiempoOp);
+        return new SimData(tableBody,hit,tiempoOp,modifiedIndex);
     }
 
     private void sumTimesTworSets(List<TableRow> tableBody, int hitIndex, int emptyIndex, int maxTimeIndex, int maxTime, String politica, CacheBlock cacheBlock, String op) {
@@ -239,6 +248,7 @@ public class AsyncController {
         int emptyIndex = -1;
         int maxTime = 0;
         int maxTimeIndex = 0;
+        int modifiedIndex = 0;
 
         for(int i=0;i<8;i++){
             TableRow tableRow = tableBody.get(i);
@@ -260,15 +270,18 @@ public class AsyncController {
 
         if(hitIndex == -1){
             if(emptyIndex != -1){
+                modifiedIndex = emptyIndex;
                 tiempoOp = 30;
             }else{
+                modifiedIndex = maxTimeIndex;
                 tiempoOp = 58;
             }
         }else{
             hit = true;
+            modifiedIndex = hitIndex;
             tiempoOp = 3;
         }
-        return new SimData(tableBody,hit,tiempoOp);
+        return new SimData(tableBody,hit,tiempoOp,modifiedIndex);
 
     }
 
@@ -313,7 +326,9 @@ public class AsyncController {
 
             boolean hit = false;
             int opTime = 0;
+            int modifiedIndex;
             TableRow tableRow = tableBody.get(cacheBlock.getSet());
+            modifiedIndex = tableRow.getConjunto();
             tableRow.setValido(1);
             tableRow.setTiempo(1);
             if(tableRow.getEtiqueta() == cacheBlock.getTag()){
@@ -329,6 +344,7 @@ public class AsyncController {
             }else{
                 tableRow.setEtiqueta(cacheBlock.getTag());
                 tableRow.setBloqueMP(cacheBlock.getBlock());
+
                 opTime = 30;
                 if(op.equals("st")){
                     tableRow.setModificado(1);
@@ -337,7 +353,7 @@ public class AsyncController {
                 }
             }
             tableBody.set(cacheBlock.getSet(),tableRow);
-            return new SimData(tableBody,hit,opTime);
+            return new SimData(tableBody,hit,opTime,modifiedIndex);
 
     }
 
