@@ -11,11 +11,12 @@
             tamBloque: parseInt("[[${tamBloque}]]"),
             tamPalabra: parseInt("[[${tamPalabra}]]"),
             tamConjunto: parseInt("[[${tamConjunto}]]"),
-            algReemplazo: parseInt("[[${algReemplazo}]]")
+            algReemplazo: "[[${algReemplazo}]]"
 
         }
     </script>
     <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 <div class="container">
@@ -29,21 +30,99 @@
         </div>
         <button id="transformButton">Transformar</button>
     </div>
-    <div class="right">
-        <table>
+</div>
+<div class="container">
+    <div class="left">
+        <table class="cache-table directa">
             <thead>
-            <tr>
-                <th>tag</th>
-                <th>set</th>
-                <th>word</th>
-                <th>byte</th>
-            </tr>
-
+                <tr>
+                    <th>set</th>
+                    <th>val</th>
+                    <th>mod</th>
+                    <th>tag</th>
+                    <th>rem</th>
+                    <th>bloque</th>
+                </tr>
             </thead>
-            <tbody id="binaryTableBody">
-            <!-- Las filas se añadirán aquí con JavaScript -->
+            </tbody>
+            <tbody class="cache-body">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
             </tbody>
         </table>
+    </div>
+    <div class="right">
+        <div class="w-100 estadisticas">
+            <h2>Hit | Miss: <span class="h-m"></span></h2>
+            <h2>Tiempo última operación: <span class="t-ultimaOp"></span></h2>
+            <h2>Operaciones realizadas: <span class="n-operaciones">0</span></h2>
+            <h2>Tiempo total de operaciones: <span class="t-operaciones">0</span></h2>
+            <h2>Total de aciertos: <span class="total-hits">0</span></h2>
+            <h2>Tasa de aciertos: <span class="tasa-hits"></span></h2>
+        </div>
+
     </div>
 </div>
 </body>

@@ -12,12 +12,52 @@ table {
     border-collapse: collapse;
 }
 
-th, td {
+th {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
-}
-
-th {
+    font-size: 18px;
     background-color: #f2f2f2;
 }
+td{
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+.cache-table{
+    width: 100%;
+}
+.cache-table tbody td {
+    min-width: 100px;
+    height: 40px;
+}
+.cache-table .set0{
+    background-color: #ff7f50;
+}
+.cache-table .set1{
+    background-color: aquamarine;
+}
+.cache-table .set2{
+    background-color: greenyellow;
+}
+.cache-table .set3{
+    background-color: cornflowerblue;
+}
+.cache-table .set4{
+    background-color: wheat;
+}
+.cache-table .set5{
+    background-color: palevioletred;
+}
+.cache-table .set6{
+    background-color: firebrick;
+}
+.cache-table .set7{
+    background-color: gold;
+}
+
+
+
+
